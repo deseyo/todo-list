@@ -4,8 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+  <div class="sidebar">
+    <!-- <div>To do list</div> -->
+    <div class="tabs">
+      <div class="tab-container" id="new-task-btn">
+        <img class="tab-icon" src="<%=require('./icons/add-task.png')%>" alt="">
+        <button class="tab-btn">Add Task</button>
+      </div>
+      <div class="tab-container">
+        <img class="tab-icon" src="<%=require('./icons/today.png')%>" alt="">
+        <button class="tab-btn" id="today-btn">My Day</button>
+      </div>
+      <div class="tab-container">
+        <img class="tab-icon" src="<%=require('./icons/week.png')%>" alt="">
+        <button class="tab-btn" id="week-btn">Next 7 Days</button>
+      </div>
+      <div class="tab-container">
+        <img class="tab-icon" src="<%=require('./icons/important.png')%>" alt="">
+        <button class="tab-btn" id="important-btn">Important</button>
+      </div>
+      <div class="tab-container">
+        <img class="tab-icon" src="<%=require('./icons/all.png')%>" alt="">
+        <button class="tab-btn" id="all-btn">All Tasks</button>
+      </div>
+    </div>
+    <div class="user-tabs">
+    </div>
+    <form onsubmit="event.preventDefault()">
+      <div class="new-list-container">
+        <label for="new-list"><img class="tab-icon" src="<%=require('./icons/add-list.png')%>" alt=""></label>
+        <input id="new-list" name="new-list" type="text" placeholder="New List" minlength="1" maxlength="15">
+      </div>
+      <input type="submit" style="display: none;" id="create-list-btn"></input>
+    </form>
+  </div>
+  <div class="content">
+    
+  </div>
+  </div>
+  <div class="new-task-window">
+    <div class="new-task-box">
+      <img id="closing-btn" src="<%=require('./icons/close-window.png')%>" alt="">
+      <div class="new-task-header">New task</div>
+      <form class="form" onsubmit="event.preventDefault()">
+        <div class="form-sub-container">
+          <label class="label" for="title">Title</label>
+          <input class="input" id="title" name="title" type="text" placeholder="Title" minlength="1" maxlength="90" required>
+        </div>
+        <div class="form-sub-container">
+          <label class="label" for="date">Date</label>
+          <input class="input" name="date" id="date" type="date">
+        </div>
+        <div class="form-sub-container">
+          <label class="label" for="list">List</label>
+          <select class="input" name="list" id="list">
+            <option value="none" selected>None</option>
+          </select>
+        </div>
+        <div class="form-sub-container">
+          <label class="label" for="priority">Important</label>
+          <input class="input" id="priority" name="priority" type="checkbox">
+        </div>
+        <button id="create-task-btn">Create</button>
+      </form>
+    </div>
+  </div>
 </body>
 </html>
